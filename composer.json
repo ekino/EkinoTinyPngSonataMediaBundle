@@ -1,0 +1,48 @@
+{
+  "name": "ekino/tiny-png-sonata-media-bundle",
+  "description": "Tiny Png integration with SonataMedia by Ekino",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "keywords": ["sonata", "tiny png", "media"],
+  "homepage": "https://github.com/ekino/tiny-png-sonata-media-bundle",
+  "authors": [
+    {
+      "name": "Ekino PHP Team",
+      "email": "php@ekino.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "doctrine/orm": "^2.6",
+    "sonata-project/media-bundle": "^3.0",
+    "sonata-project/notification-bundle": "^3.1",
+    "symfony/framework-bundle": "^3.3 || ^4.0",
+    "tinify/tinify": "^1.5"
+  },
+  "require-dev": {
+    "ekino/phpstan-banned-code":   "^0.1",
+    "friendsofphp/php-cs-fixer":   "^2.12",
+    "phpstan/phpstan-phpunit":     "^0.11",
+    "phpunit/phpunit":             "^7.2",
+    "sensiolabs/security-checker": "^6.0",
+    "symfony/phpunit-bridge":      "^3.3 || ^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ekino\\TinyPngSonataMediaBundle\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ekino\\TinyPngSonataMediaBundle\\Tests\\": "tests"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.x-dev"
+    }
+  }
+}
