@@ -14,8 +14,10 @@ declare(strict_types=1);
 namespace Ekino\TinyPngSonataMediaBundle\Tests\DependencyInjection;
 
 use Ekino\TinyPngSonataMediaBundle\DependencyInjection\EkinoTinyPngSonataMediaExtension;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
 
 /**
  * Class EkinoTinyPngSonataMediaExtensionTest
@@ -30,27 +32,51 @@ class EkinoTinyPngSonataMediaExtensionTest extends TestCase
     private $extension;
 
     /**
+     * @var ContainerBuilder|MockObject
+     */
+    private $containerBuilder;
+
+    /**
      * {@inheritdoc}
      */
     protected function setUp(): void
     {
-        $this->extension = new EkinoTinyPngSonataMediaExtension();
+        $this->extension        = new EkinoTinyPngSonataMediaExtension();
+        $this->containerBuilder = $this->createMock(ContainerBuilder::class);
     }
 
     public function testSonataMediaConfig(): void
     {
-        $container = $this->createPartialMock(ContainerBuilder::class,
-            ['setParameter']
-        );
+        $clientDefinition = $this->createMockDefinition();
+        $clientDefinition
+            ->expects($this->exactly(2))
+            ->method('replaceArgument')
+            ->withConsecutive(
+                [0, 'foo_api_key'],
+                [0, ['foo_provider', 'bar_provider']]
+            )
+            ->willReturnSelf();
 
-        $container->expects($this->at(0))->method('setParameter')
-            ->with('ekino.tiny_png_sonata_media.api_key', 'foo_api_key');
-        $container->expects($this->at(1))->method('setParameter')
-            ->with('ekino.tiny_png_sonata_media.providers', ['foo_provider', 'bar_provider']);
+        $this->containerBuilder
+            ->expects($this->exactly(2))
+            ->method('findDefinition')
+            ->withConsecutive(
+                ['ekino.tiny_png_sonata_media.tinfy.client'],
+                ['ekino_tiny_png_sonata_media.doctrine.event_subscriber']
+            )
+            ->willReturn($clientDefinition);
 
         $this->extension->load([[
             'tiny_png_api_key' => 'foo_api_key',
             'providers'        => ['foo_provider', 'bar_provider'],
-        ]], $container);
+        ]], $this->containerBuilder);
+    }
+
+    /**
+     * @return MockObject
+     */
+    private function createMockDefinition(): MockObject
+    {
+        return $this->createMock(Definition::class);
     }
 }
