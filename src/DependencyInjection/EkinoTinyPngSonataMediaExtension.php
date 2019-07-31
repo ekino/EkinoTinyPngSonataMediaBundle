@@ -33,10 +33,14 @@ class EkinoTinyPngSonataMediaExtension extends Extension
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('ekino.tiny_png_sonata_media.api_key', $config['tiny_png_api_key']);
-        $container->setParameter('ekino.tiny_png_sonata_media.providers', $config['providers']);
-
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        $container
+            ->findDefinition('ekino.tiny_png_sonata_media.tinfy.client')
+            ->replaceArgument(0, $config['tiny_png_api_key']);
+        $container
+            ->findDefinition('ekino_tiny_png_sonata_media.doctrine.event_subscriber')
+            ->replaceArgument(0, $config['providers']);
     }
 }

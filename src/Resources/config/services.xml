@@ -6,7 +6,7 @@
 
     <services>
         <service id="ekino.tiny_png_sonata_media.tinfy.client" class="Ekino\TinyPngSonataMediaBundle\Client\Client" public="false">
-            <argument>%ekino.tiny_png_sonata_media.api_key%</argument>
+            <argument />
         </service>
 
         <service id="ekino.tiny_png_sonata_media.optimize.consumer" class="Ekino\TinyPngSonataMediaBundle\Consumer\OptimizeImageConsumer" public="false">
@@ -18,7 +18,7 @@
 
         <service id="ekino_tiny_png_sonata_media.doctrine.event_subscriber" class="Ekino\TinyPngSonataMediaBundle\Listener\MediaEventSubscriber">
             <tag name="doctrine.event_subscriber"/>
-            <argument>%ekino.tiny_png_sonata_media.providers%</argument>
+            <argument />
             <argument type="service" id="sonata.media.pool"/>
             <argument type="service" id="sonata.notification.backend"/>
         </service>

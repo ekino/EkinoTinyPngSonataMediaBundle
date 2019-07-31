@@ -39,7 +39,7 @@ class ClientTest extends TestCase
     public function testOptimizeWithFileExistWithoutOverwrite(): void
     {
         $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessageRegExp('#The file \/(.*)\/src\/TinyPngSonataMediaBundle\/tests\/Client\/foo\.png already exists and the overwrite option is false#');
+        $this->expectExceptionMessageRegExp('#The file \/(.*)\/tests\/Client\/foo\.png already exists and the overwrite option is false#');
 
         $this->client->optimize(__DIR__.'/foo.png', __DIR__.'/foo.png', false);
     }
