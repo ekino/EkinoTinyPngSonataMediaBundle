@@ -51,4 +51,16 @@ final class Client implements ClientInterface
     {
         Source::fromFile($inputPath)->toFile($outputPath);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCompressionCount(): int
+    {
+        // just validate the api key to retrieve the compression count
+        // see https://tinypng.com/developers/reference/php#compression-count
+        \Tinify\validate();
+
+        return Tinify::getCompressionCount() ?: 0;
+    }
 }

@@ -49,26 +49,29 @@ class EkinoTinyPngSonataMediaExtensionTest extends TestCase
     {
         $clientDefinition = $this->createMockDefinition();
         $clientDefinition
-            ->expects($this->exactly(2))
+            ->expects($this->exactly(3))
             ->method('replaceArgument')
             ->withConsecutive(
                 [0, 'foo_api_key'],
-                [0, ['foo_provider', 'bar_provider']]
+                [0, ['foo_provider', 'bar_provider']],
+                [0, 500]
             )
             ->willReturnSelf();
 
         $this->containerBuilder
-            ->expects($this->exactly(2))
+            ->expects($this->exactly(3))
             ->method('findDefinition')
             ->withConsecutive(
-                ['ekino.tiny_png_sonata_media.tinfy.client'],
-                ['ekino_tiny_png_sonata_media.doctrine.event_subscriber']
+                ['ekino.tiny_png_sonata_media.tinify.client'],
+                ['ekino_tiny_png_sonata_media.doctrine.event_subscriber'],
+                ['ekino.tiny_png_sonata_media.tiny_png.check']
             )
             ->willReturn($clientDefinition);
 
         $this->extension->load([[
-            'tiny_png_api_key' => 'foo_api_key',
-            'providers'        => ['foo_provider', 'bar_provider'],
+            'tiny_png_api_key'               => 'foo_api_key',
+            'providers'                      => ['foo_provider', 'bar_provider'],
+            'max_compression_count_by_month' => 500,
         ]], $this->containerBuilder);
     }
 

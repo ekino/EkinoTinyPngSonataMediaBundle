@@ -15,6 +15,7 @@ namespace Ekino\TinyPngSonataMediaBundle\Tests\Client;
 
 use Ekino\TinyPngSonataMediaBundle\Client\Client;
 use PHPUnit\Framework\TestCase;
+use Tinify\CurlMock;
 
 /**
  * Class ClientTest
@@ -42,5 +43,15 @@ class ClientTest extends TestCase
         $this->expectExceptionMessageRegExp('#The file \/(.*)\/tests\/Client\/foo\.png already exists and the overwrite option is false#');
 
         $this->client->optimize(__DIR__.'/foo.png', __DIR__.'/foo.png', false);
+    }
+
+    public function testGetCompressionCount(): void
+    {
+        CurlMock::reset();
+        CurlMock::register("https://api.tinify.com/shrink", [
+            "status" => 400, "headers" => ["compression-count" => 12], "body" => '{"error":"Input missing","message":"No input"}'
+        ]);
+
+        $this->assertSame(12, $this->client->getCompressionCount());
     }
 }
