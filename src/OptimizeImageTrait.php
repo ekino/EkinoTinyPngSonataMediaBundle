@@ -15,8 +15,10 @@ namespace Ekino\TinyPngSonataMediaBundle;
 
 use Ekino\TinyPngSonataMediaBundle\Consumer\OptimizeImageConsumer;
 use Sonata\NotificationBundle\Backend\BackendInterface;
-use Sonata\NotificationBundle\Backend\QueueDispatcherInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /**
  * Trait OptimizeImageTrait.
@@ -30,25 +32,56 @@ trait OptimizeImageTrait
      */
     private $backend;
 
-    public function optimizeAction(Request $request = null)
+    /**
+     * @var Session
+     */
+    private $session;
+
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+
+    /**
+     * @param Request|null $request
+     *
+     * @return RedirectResponse
+     */
+    public function optimizeAction(Request $request = null): RedirectResponse
     {
-        $this->getBackend()->createAndPublish(OptimizeImageConsumer::CONSUMER_TYPE, [
+        $this->backend->createAndPublish(OptimizeImageConsumer::CONSUMER_TYPE, [
             'mediaId' => $request->get('id'),
         ]);
 
-        $this->get('session')->getFlashBag()->add(
+        $this->session->getFlashBag()->add(
             'sonata_flash_success',
-            'Successfully launch the optimization of your media.'
+            $this->translator->trans('optimize.image.success', [], 'TinyPngSonataMediaBundle')
         );
 
         return $this->redirectToList();
     }
 
     /**
-     * @return BackendInterface
+     * @param BackendInterface $backend
      */
-    private function getBackend()
+    public function setBackend(BackendInterface $backend): void
     {
-        return $this->container->get('sonata.notification.backend');
+        $this->backend = $backend;
+    }
+
+    /**
+     * @param Session $session
+     */
+    public function setSession(Session $session): void
+    {
+        $this->session = $session;
+    }
+
+    /**
+     * @param TranslatorInterface $translator
+     */
+    public function setTranslator(TranslatorInterface $translator): void
+    {
+        $this->translator = $translator;
     }
 }

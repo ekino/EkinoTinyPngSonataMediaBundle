@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" target-language="fr" datatype="plaintext" original="TinyPngSonataMediaBundle.fr.xliff">
+        <body>
+            <trans-unit id="optimize.image">
+                <source>optimize.image</source>
+                <target>Optimiser le média</target>
+            </trans-unit>
+            <trans-unit id="optimize.image.success">
+                <source>optimize.image.success</source>
+                <target>L'optimisation de votre média est lancée avec succès.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

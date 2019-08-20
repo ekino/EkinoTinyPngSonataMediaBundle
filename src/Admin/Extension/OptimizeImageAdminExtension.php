@@ -15,9 +15,7 @@ namespace Ekino\TinyPngSonataMediaBundle\Admin\Extension;
 
 use Sonata\AdminBundle\Admin\AbstractAdminExtension;
 use Sonata\AdminBundle\Admin\AdminInterface;
-use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * Class OptimizeImageAdminExtension.
@@ -27,15 +25,15 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 final class OptimizeImageAdminExtension extends AbstractAdminExtension
 {
     /**
-     * Overriden from (AbstractAdmin)
+     * {@inheritdoc}
      */
     public function configureActionButtons(AdminInterface $admin, $list, $action, $object)
     {
         $list = parent::configureActionButtons($admin, $list, $action, $object);
 
-        $list['custom_action'] = array(
-            'template' =>  '@EkinoTinyPngSonataMedia/OptimizeImageAdmin/button.html.twig',
-        );
+        $list['custom_action'] = [
+            'template' => '@EkinoTinyPngSonataMedia/OptimizeImageAdmin/button.html.twig',
+        ];
 
         return $list;
     }
@@ -45,11 +43,9 @@ final class OptimizeImageAdminExtension extends AbstractAdminExtension
      */
     public function configureRoutes(AdminInterface $admin, RouteCollection $collection)
     {
-        parent::configureRoutes($admin, $collection);
-
         $collection->add('optimize',
             'optimize-image/{id}',
-            ['_controller' => 'SonataMediaBundle:MediaAdmin:optimize'],
+            [],
             ['id' => '\d+']
         );
     }

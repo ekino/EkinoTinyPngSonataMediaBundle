@@ -9,6 +9,9 @@ TinyPngSonataMediaBundle
 This is a *work in progress*, so if you'd like something implemented please
 feel free to ask for it or contribute to help us!
 
+# Resources
+- [Documentation](./00-docs.md)
+
 # Purpose
 
 Automatize image optimization through tinyPNG service. You can only use the client or get the full process with 
