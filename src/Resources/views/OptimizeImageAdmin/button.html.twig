@@ -1,0 +1,8 @@
+{% if admin.isCurrentRoute('edit') %}
+    <li>
+        <a class="sonata-action-element" href="{{ path('admin_app_sonata_media_optimize',{'id': admin.subject.id}) }}">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            {{ 'optimize.image'|trans({}, 'SonataAdminBundle') }}
+        </a>
+    </li>
+{% endif %}
