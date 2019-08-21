@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="ekino.tiny_png_sonata_media.tinfy.client" class="Ekino\TinyPngSonataMediaBundle\Client\Client" public="false">
+        <service id="ekino.tiny_png_sonata_media.tinify.client" class="Ekino\TinyPngSonataMediaBundle\Client\Client" public="false">
             <argument />
         </service>
 
@@ -13,7 +13,7 @@
             <tag name="sonata.notification.consumer" type="ekino.tiny_png_sonata_media.optimize_image"/>
             <argument type="service" id="sonata.media.manager.media"/>
             <argument type="service" id="sonata.media.pool"/>
-            <argument type="service" id="ekino.tiny_png_sonata_media.tinfy.client"/>
+            <argument type="service" id="ekino.tiny_png_sonata_media.tinify.client"/>
         </service>
 
         <service id="ekino_tiny_png_sonata_media.doctrine.event_subscriber" class="Ekino\TinyPngSonataMediaBundle\Listener\MediaEventSubscriber">
@@ -26,6 +26,12 @@
         <service id="ekino.tiny_png_sonata_media.optimize.extension" class="Ekino\TinyPngSonataMediaBundle\Admin\Extension\OptimizeImageAdminExtension" public="false">
             <tag name="sonata.admin.extension"/>
             <argument />
+        </service>
+
+        <service id="ekino.tiny_png_sonata_media.tiny_png.check" class="Ekino\TinyPngSonataMediaBundle\Check\TinyPngCheck" public="false">
+            <tag name="liip_monitor.check"/>
+            <argument />
+            <argument type="service" id="ekino.tiny_png_sonata_media.tinify.client"/>
         </service>
     </services>
 

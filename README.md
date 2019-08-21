@@ -72,7 +72,7 @@ ekino_tiny_png_sonata_media:
 Client can be used directly to optimize images through tinyPNG API. However, image optimization should not be done 
 synchronously as it takes time.
 
-If you know what you are doing, you can use the `ekino.tiny_png_sonata_media.tinfy.client` and its `optimize` method:
+If you know what you are doing, you can use the `ekino.tiny_png_sonata_media.tinify.client` and its `optimize` method:
 
 ```php
 <?php
@@ -88,9 +88,14 @@ the whitelist (defined in configuration), it will publish a sonata notification 
 (`Ekino\TinyPngSonataMediaBundle\Consumer\OptimizeImageConsumer`). This consumer will contact tinyPNG API for 
 optimization, replace it on the server and update media size in database.
 
+## Suggest install LiipMonitorBundle
+
+This bundle provides a service using [liip/monitor-bundle][1] to check the count of compressions made this month. 
 
 # Note
 
 - Only Sonata\MediaBundle\Filesystem\Local adapter is supported for now.
 - Only png, jpg & jpeg files extensions are handled by this bundle as the tinyPNG only handle those ones.
 - Regeneration of thumbnails after optimization is not yet supported.
+
+[1]: https://github.com/liip/LiipMonitorBundle
