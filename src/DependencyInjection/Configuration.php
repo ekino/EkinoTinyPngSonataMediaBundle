@@ -45,6 +45,7 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue([])
                     ->prototype('scalar')->end()
                 ->end()
+                ->scalarNode('max_compression_count_by_month')->defaultValue(500)->end()
             ->end()
         ;
 

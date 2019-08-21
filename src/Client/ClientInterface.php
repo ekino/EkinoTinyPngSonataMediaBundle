@@ -21,4 +21,10 @@ interface ClientInterface
      * @param bool $overwrite
      */
     public function optimize(string $inputPath, string $outputPath, bool $overwrite = true): void;
+
+    /**
+     * @throws \Tinify\AccountException
+     * @return int
+     */
+    public function getCompressionCount(): int;
 }

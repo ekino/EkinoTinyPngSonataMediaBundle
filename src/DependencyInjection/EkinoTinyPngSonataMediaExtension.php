@@ -37,10 +37,13 @@ class EkinoTinyPngSonataMediaExtension extends Extension
         $loader->load('services.xml');
 
         $container
-            ->findDefinition('ekino.tiny_png_sonata_media.tinfy.client')
+            ->findDefinition('ekino.tiny_png_sonata_media.tinify.client')
             ->replaceArgument(0, $config['tiny_png_api_key']);
         $container
             ->findDefinition('ekino_tiny_png_sonata_media.doctrine.event_subscriber')
             ->replaceArgument(0, $config['providers']);
+        $container
+            ->findDefinition('ekino.tiny_png_sonata_media.tiny_png.check')
+            ->replaceArgument(0, $config['max_compression_count_by_month']);
     }
 }
