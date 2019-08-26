@@ -28,6 +28,24 @@
             <argument />
             <argument type="service" id="ekino.tiny_png_sonata_media.tinify.client"/>
         </service>
+
+        <service id="ekino.tiny_png_sonata_media.extension.optimize" class="Ekino\TinyPngSonataMediaBundle\Admin\Extension\OptimizeImageAdminExtension" public="false">
+            <tag name="sonata.admin.extension"/>
+            <argument />
+        </service>
+
+        <service id="ekino.tiny_png_sonata_media.controller.media_admin" class="Ekino\TinyPngSonataMediaBundle\Controller\MediaAdminController">
+            <tag name="controller.service_arguments"/>
+            <call method="setBackend">
+                <argument type="service" id="sonata.notification.backend"/>
+            </call>
+            <call method="setSession">
+                <argument type="service" id="session"/>
+            </call>
+            <call method="setTranslator">
+                <argument type="service" id="translator"/>
+            </call>
+        </service>
     </services>
 
 </container>
