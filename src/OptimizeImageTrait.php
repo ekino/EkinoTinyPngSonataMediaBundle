@@ -40,7 +40,7 @@ trait OptimizeImageTrait
     /**
      * @var TranslatorInterface
      */
-    private $translator;
+    protected $translator;
 
     /**
      * @param Request|null $request
