@@ -4,6 +4,8 @@ CHANGELOG
 master
 ------
 
+* Fix type hinting error on configureActionButtons method
+
 v1.0.0
 ------
 
