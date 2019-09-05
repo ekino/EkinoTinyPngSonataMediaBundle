@@ -17,6 +17,7 @@ use Ekino\TinyPngSonataMediaBundle\Admin\Extension\OptimizeImageAdminExtension;
 use PHPUnit\Framework\TestCase;
 use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\MediaBundle\Model\Media;
 
 /**
  * Class OptimizeImageAdminExtensionTest
@@ -43,9 +44,10 @@ class OptimizeImageAdminExtensionTest extends TestCase
      */
     public function testConfigureActionButtons(): void
     {
-        $admin = $this->createMock(AdminInterface::class);
+        $admin  = $this->createMock(AdminInterface::class);
+        $media  = $this->createMock(Media::class);
 
-        $list = $this->optimizeImageAdminExtension->configureActionButtons($admin, [], '', '');
+        $list = $this->optimizeImageAdminExtension->configureActionButtons($admin, [], '', $media);
 
         $this->assertArrayHasKey('custom_action', $list);
         $this->assertArrayHasKey('template', $list['custom_action']);

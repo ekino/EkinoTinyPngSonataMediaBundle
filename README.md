@@ -10,7 +10,7 @@ This is a *work in progress*, so if you'd like something implemented please
 feel free to ask for it or contribute to help us!
 
 # Resources
-- [Documentation](./00-docs.md)
+- [Documentation](./docs/00-docs.md)
 
 # Purpose
 
