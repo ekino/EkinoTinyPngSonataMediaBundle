@@ -41,7 +41,7 @@ final class OptimizeImageAdminExtension extends AbstractAdminExtension
     /**
      * {@inheritdoc}
      */
-    public function configureRoutes(AdminInterface $admin, RouteCollection $collection)
+    public function configureRoutes(AdminInterface $admin, RouteCollection $collection): void
     {
         $collection->add('optimize',
             'optimize-image/{id}',

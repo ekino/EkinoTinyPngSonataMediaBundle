@@ -12,26 +12,25 @@
     }
   ],
   "require": {
-    "php":                                "^7.1",
+    "php":                                "^7.2",
     "doctrine/orm":                       "^2.6",
     "sonata-project/admin-bundle":        "^3.1",
     "sonata-project/media-bundle":        "^3.0",
     "sonata-project/notification-bundle": "^3.1",
-    "symfony/framework-bundle":           "^3.3 || ^4.0",
-    "symfony/translation":                "^3.3 || ^4.0",
+    "symfony/framework-bundle":           "^3.3 || ^4.4",
+    "symfony/translation":                "^3.3 || ^4.4",
     "tinify/tinify":                      "^1.5"
   },
   "conflict": {
-    "sonata-project/admin-bundle": "<3.27",
-    "sonata-project/media-bundle": "<3.0"
+    "sonata-project/admin-bundle": "<3.27"
   },
   "require-dev": {
-    "ekino/phpstan-banned-code":   "^0.1",
+    "ekino/phpstan-banned-code":   "^0.2 || ^0.3",
     "friendsofphp/php-cs-fixer":   "^2.12",
-    "phpstan/phpstan-phpunit":     "^0.11",
-    "phpunit/phpunit":             "^7.2",
-    "sensiolabs/security-checker": "^5.0",
-    "symfony/phpunit-bridge":      "^3.3 || ^4.0"
+    "phpstan/phpstan-phpunit":     "^0.12",
+    "phpunit/phpunit":             "^8.5",
+    "sensiolabs/security-checker": "^6.0",
+    "symfony/phpunit-bridge":      "^5.0"
   },
   "suggest": {
     "liip/monitor-bundle": "^2.9"
