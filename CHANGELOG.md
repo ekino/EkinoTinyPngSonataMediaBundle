@@ -5,6 +5,9 @@ master
 ------
 
 * Fix type hinting error on configureActionButtons method
+* Drop support for PHP 7.1
+* Add PHP 7.4 in CI
+* Upgrade PhpUnit to 8
 
 v1.0.0
 ------
