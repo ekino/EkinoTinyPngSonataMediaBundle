@@ -8,6 +8,7 @@ master
 * Drop support for PHP 7.1
 * Add PHP 7.4 in CI
 * Upgrade PhpUnit to 8
+* Fix checkGenericClassInNonGenericObjectType to false for generic T type from SonataMedia
 
 v1.0.0
 ------
