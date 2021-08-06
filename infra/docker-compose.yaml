@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  php:
-    build: php
-    volumes:
-      - ../:/var/www/
-    environment:
-      - COMPOSER_MEMORY_LIMIT=-1 //-1 means unlimited
