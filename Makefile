@@ -16,7 +16,7 @@ app-cs-fix: ## to fix files that need to be fixed
 	vendor/bin/php-cs-fixer fix --verbose
 
 app-install: ## to install app
-	composer install --prefer-dist
+	composer install --prefer-dist --no-progress
 
 app-security-check: ## to check if any security issues in the PHP dependencies
 	rm -f local-php-security-checker
