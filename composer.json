@@ -12,27 +12,27 @@
     }
   ],
   "require": {
-    "php":                                "^7.2 || ^8.0",
-    "doctrine/orm":                       "^2.6 || ^2.9",
-    "sonata-project/admin-bundle":        "^3.1 || ^3.68 || ^3.104",
-    "sonata-project/media-bundle":        "^3.0 || ^3.26.0 || ^3.32",
-    "sonata-project/notification-bundle": "^3.1 || ^3.10.0 || ^3.13",
-    "symfony/framework-bundle":           "^3.3 || ^4.4 || ^v5.3",
-    "symfony/translation":                "^3.3 || ^4.4 || v5.3",
+    "php":                                "^7.2",
+    "doctrine/orm":                       "^2.6",
+    "sonata-project/admin-bundle":        "^3.1",
+    "sonata-project/media-bundle":        "^3.0",
+    "sonata-project/notification-bundle": "^3.1",
+    "symfony/framework-bundle":           "^3.3 || ^4.4",
+    "symfony/translation":                "^3.3 || ^4.4",
     "tinify/tinify":                      "^1.5"
   },
   "conflict": {
     "sonata-project/admin-bundle": "<3.27"
   },
   "require-dev": {
-    "ekino/phpstan-banned-code":   "^v0.4",
-    "friendsofphp/php-cs-fixer":   "^v3.0",
+    "ekino/phpstan-banned-code":   "^0.2 || ^0.3",
+    "friendsofphp/php-cs-fixer":   "^2.12",
     "phpstan/phpstan-phpunit":     "^0.12",
-    "phpunit/phpunit":             "^8.5 || ^9.5",
-    "symfony/phpunit-bridge":      "^v5.3"
+    "phpunit/phpunit":             "^8.5",
+    "symfony/phpunit-bridge":      "^5.0"
   },
   "suggest": {
-    "liip/monitor-bundle": "^2.16"
+    "liip/monitor-bundle": "^2.9"
   },
   "autoload": {
     "psr-4": {
