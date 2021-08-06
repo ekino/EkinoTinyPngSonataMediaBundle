@@ -10,7 +10,7 @@ This is a *work in progress*, so if you'd like something implemented please
 feel free to ask for it or contribute to help us!
 
 # Resources
-- [Documentation](./00-docs.md)
+- [Documentation](./docs/00-docs.md)
 
 # Purpose
 
@@ -62,8 +62,9 @@ return [
 
 ```yaml
 ekino_tiny_png_sonata_media:
-    tiny_png_api_key: '' # required
-    providers: []        # default
+    tiny_png_api_key:               ~   # required
+    providers:                      []  # default
+    max_compression_count_by_month: 500 # default value defined in config
 ```
 
 ## Step 4: define the sonata notification queue for asynchronous behaviour

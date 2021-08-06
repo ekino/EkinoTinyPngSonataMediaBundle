@@ -4,8 +4,6 @@
     Show us you choose the right branch.
     Different branches are used for different things :
     - master is for everything backwards compatible, like patches, features and deprecation notices
-    - 1.x-dev is for deprecation removals and other changes that cannot be done without a BC-break
-    More details here: https://github.com/ekino/tiny-png-sonata-media-bundle/blob/master/CONTRIBUTING.md#the-base-branch
 -->
 I am targeting this branch, because {reason}.
 

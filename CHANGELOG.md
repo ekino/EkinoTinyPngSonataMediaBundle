@@ -4,6 +4,13 @@ CHANGELOG
 master
 ------
 
+* Fix type hinting error on configureActionButtons method
+* Drop support for PHP 7.1
+* Add PHP 7.4 in CI
+* Upgrade PhpUnit to 8
+* Fix checkGenericClassInNonGenericObjectType to false for generic T type from SonataMedia
+* Switch to the new security checker
+
 v1.0.0
 ------
 

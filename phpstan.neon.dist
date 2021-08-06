@@ -4,6 +4,8 @@ includes:
 	- vendor/phpstan/phpstan-phpunit/rules.neon
 
 parameters:
+	checkMissingIterableValueType: false
+	checkGenericClassInNonGenericObjectType: false
 	excludes_analyse:
 		- %rootDir%/../../../vendor/*
 		- %rootDir%/../../../src/DependencyInjection/Configuration.php
