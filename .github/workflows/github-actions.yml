@@ -14,26 +14,21 @@ jobs:
     strategy:
       matrix:
         php: [ '7.2', '7.3', '7.4', '8.0' ]
-
     steps:
       - uses: actions/checkout@v2
-
       - name: Cache Composer packages
           id: composer-cache
           uses: actions/cache@v2
           with:
             path: vendor
-            tools: composer
             key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
             restore-keys: |
               ${{ runner.os }}-php-
-
       - name: Setup PHP with tools
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           ini-values: php_memory_limit=3072M
           tools: composer
-      - run: composer validate --strict
       - run: make app-install
       - run: make ci
