@@ -17,7 +17,6 @@ app-cs-fix: ## to fix files that need to be fixed
 
 app-install: ## to install app
 	composer install --prefer-dist
-	composer update --prefer-dist --no-interaction --prefer-stable --quiet
 
 app-security-check: ## to check if any security issues in the PHP dependencies
 	rm -f local-php-security-checker

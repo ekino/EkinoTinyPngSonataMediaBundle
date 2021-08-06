@@ -25,14 +25,14 @@
     "sonata-project/admin-bundle": "<3.27"
   },
   "require-dev": {
-    "ekino/phpstan-banned-code":   "^0.2 || ^0.3",
-    "friendsofphp/php-cs-fixer":   "^2.12 || ^v2.19",
-    "phpstan/phpstan-phpunit":     "^0.12 || ^0.12",
+    "ekino/phpstan-banned-code":   "^v0.4",
+    "friendsofphp/php-cs-fixer":   "^v3.0",
+    "phpstan/phpstan-phpunit":     "^0.12",
     "phpunit/phpunit":             "^8.5 || ^9.5",
-    "symfony/phpunit-bridge":      "^5.0 || ^v5.3"
+    "symfony/phpunit-bridge":      "^v5.3"
   },
   "suggest": {
-    "liip/monitor-bundle": "^2.9 || ^2.16"
+    "liip/monitor-bundle": "^2.16"
   },
   "autoload": {
     "psr-4": {
