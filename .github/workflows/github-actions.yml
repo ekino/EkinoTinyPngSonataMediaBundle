@@ -20,7 +20,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          ini-values: php_memory_limit=8M
+          ini-values: php_memory_limit=3072M
           tools: composer
       - run: make app-install
       - run: make ci
