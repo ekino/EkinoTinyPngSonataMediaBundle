@@ -1,0 +1,26 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+  schedule:
+    - cron:  '0 1 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [ '7.2', '7.3', '7.4', '8.0' ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP with tools
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          ini-values: php_memory_limit=8M
+          tools: composer
+      - run: make app-install
+      - run: make ci
