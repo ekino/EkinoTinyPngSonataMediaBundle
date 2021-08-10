@@ -10,6 +10,7 @@ master
 * Upgrade PhpUnit to 8
 * Fix checkGenericClassInNonGenericObjectType to false for generic T type from SonataMedia
 * Switch to the new security checker
+* Migrating from travis to gitlab-actions
 
 v1.0.0
 ------
