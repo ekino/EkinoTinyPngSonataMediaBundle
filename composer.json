@@ -12,7 +12,7 @@
     }
   ],
   "require": {
-    "php":                                "^7.2",
+    "php":                                "^7.2 || ^8.0",
     "doctrine/orm":                       "^2.6",
     "sonata-project/admin-bundle":        "^3.1",
     "sonata-project/media-bundle":        "^3.0",
@@ -25,14 +25,14 @@
     "sonata-project/admin-bundle": "<3.27"
   },
   "require-dev": {
-    "ekino/phpstan-banned-code":   "^0.2 || ^0.3",
+    "ekino/phpstan-banned-code":   "^0.3 || ^0.4",
     "friendsofphp/php-cs-fixer":   "^2.12",
     "phpstan/phpstan-phpunit":     "^0.12",
     "phpunit/phpunit":             "^8.5",
     "symfony/phpunit-bridge":      "^5.0"
   },
   "suggest": {
-    "liip/monitor-bundle": "^2.9"
+    "liip/monitor-bundle": "^2.16"
   },
   "autoload": {
     "psr-4": {
@@ -54,3 +54,4 @@
     }
   }
 }
+
