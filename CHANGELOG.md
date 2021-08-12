@@ -13,6 +13,7 @@ master
 * Migrate from Travis to GitHub Actions
 * Allow PHP 8.0
 * Drop support for Symfony 3 and allow version 5
+* Fix depreciated PHP-CS rules
 
 v1.0.0
 ------
