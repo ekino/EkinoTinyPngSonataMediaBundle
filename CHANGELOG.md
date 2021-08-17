@@ -19,6 +19,7 @@ v1.1.0
 * Allow PHP 8.0
 * Drop support for Symfony 3 and allow version 5
 * Fix deprecated PHP-CS rules
+* Upgrade friendsofphp/php-cs-fixer
 
 v1.0.0
 ------
