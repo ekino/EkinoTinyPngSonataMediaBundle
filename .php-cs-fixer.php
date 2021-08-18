@@ -24,9 +24,11 @@ $finder = PhpCsFixer\Finder::create()
 ;
 
 $config = new PhpCsFixer\Config();
+
 $config->setUsingCache(true)
     ->setRiskyAllowed(true)
     ->setFinder($finder);
+
 return $config->setRules([
     'array_indentation' => true,
     'array_syntax' => ['syntax' => 'short'],

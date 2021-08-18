@@ -49,9 +49,11 @@ trait OptimizeImageTrait
      */
     public function optimizeAction(Request $request = null): RedirectResponse
     {
-        $this->backend->createAndPublish(OptimizeImageConsumer::CONSUMER_TYPE, [
-            'mediaId' => $request->get('id'),
-        ]);
+        if ($request != null) {
+            $this->backend->createAndPublish(OptimizeImageConsumer::CONSUMER_TYPE, [
+                'mediaId' => $request->get('id'),
+            ]);
+        }
 
         $this->session->getFlashBag()->add(
             'sonata_flash_success',

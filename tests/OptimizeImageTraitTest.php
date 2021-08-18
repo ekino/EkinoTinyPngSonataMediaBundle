@@ -63,9 +63,9 @@ class OptimizeImageTraitTest extends TestCase
         $this->translator = $this->createMock(TranslatorInterface::class);
 
         $this->optimizeImageTrait = $this->getObjectForTrait(OptimizeImageTraitDecorate::class);
-        $this->optimizeImageTrait->setSession($session);
-        $this->optimizeImageTrait->setBackend($this->backend);
-        $this->optimizeImageTrait->setTranslator($this->translator);
+        $this->optimizeImageTrait->setSession($session); // @phpstan-ignore-line
+        $this->optimizeImageTrait->setBackend($this->backend); // @phpstan-ignore-line
+        $this->optimizeImageTrait->setTranslator($this->translator); // @phpstan-ignore-line
     }
 
     /**
@@ -77,7 +77,7 @@ class OptimizeImageTraitTest extends TestCase
 
         $this->backend->expects($this->once())->method('createAndPublish');
 
-        $this->optimizeImageTrait->optimizeAction($this->request);
+        $this->optimizeImageTrait->optimizeAction($this->request); // @phpstan-ignore-line
     }
 }
 

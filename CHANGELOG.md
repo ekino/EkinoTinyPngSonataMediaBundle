@@ -4,7 +4,7 @@ CHANGELOG
 master
 ------
 
-* todo...
+* Improve PHPStan configuration file
 
 v1.1.0
 ------
