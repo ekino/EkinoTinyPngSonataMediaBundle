@@ -4,6 +4,10 @@ includes:
 	- vendor/phpstan/phpstan-phpunit/rules.neon
 
 parameters:
+	level: 8
+	paths:
+		- src
+		- tests
 	checkMissingIterableValueType: false
 	checkGenericClassInNonGenericObjectType: false
 	excludes_analyse:
