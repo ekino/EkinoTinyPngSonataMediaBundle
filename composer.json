@@ -29,7 +29,7 @@
     "friendsofphp/php-cs-fixer":   "^3.0",
     "phpstan/phpstan-phpunit":     "^0.12",
     "phpunit/phpunit":             "^8.5",
-    "symfony/phpunit-bridge":      "^5.0"
+    "symfony/phpunit-bridge":      "^6.0"
   },
   "suggest": {
     "liip/monitor-bundle": "^2.16"
