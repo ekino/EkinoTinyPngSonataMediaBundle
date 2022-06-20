@@ -15,6 +15,8 @@ namespace Ekino\TinyPngSonataMediaBundle\Tests\Check;
 
 use Ekino\TinyPngSonataMediaBundle\Check\TinyPngCheck;
 use Ekino\TinyPngSonataMediaBundle\Client\ClientInterface;
+use Laminas\Diagnostics\Result\Failure;
+use Laminas\Diagnostics\Result\Success;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -54,7 +56,7 @@ class TinyPngCheckTest extends TestCase
         $this->client->expects($this->once())->method('getCompressionCount')->willReturn(12);
 
         $result = $this->check->check();
-        $this->assertInstanceOf('ZendDiagnostics\Result\Success', $result);
+        $this->assertInstanceOf(Success::class, $result);
         $this->assertSame('Count of compressions made for this month: 12.', $result->getMessage());
     }
 
@@ -63,7 +65,7 @@ class TinyPngCheckTest extends TestCase
         $this->client->expects($this->once())->method('getCompressionCount')->willReturn(600);
 
         $result = $this->check->check();
-        $this->assertInstanceOf('ZendDiagnostics\Result\Failure', $result);
+        $this->assertInstanceOf(Failure::class, $result);
         $this->assertSame('Max count of compressions reached! 600 images compressed this month, 500 allowed.', $result->getMessage());
     }
 }

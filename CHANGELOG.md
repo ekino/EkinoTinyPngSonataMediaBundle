@@ -6,6 +6,7 @@ master
 
 * Improve PHPStan configuration file
 * Drop support for PHP 7.2 and 7.3, add check for 8.1
+* Use Laminas diagnostics
 
 v1.1.0
 ------
